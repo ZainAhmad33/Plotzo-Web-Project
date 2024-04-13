@@ -3,6 +3,7 @@ import SearchBar from "../../components/searchBar/SearchBar";
 import "./HomePage.scss";
 import Card from "../../components/Card/Card";
 import { listData } from "../../lib/dummydata";
+import Footer from "../../components/Footer/Footer";
 // import { AuthContext } from "../../context/AuthContext";
 
 function HomePage() {
@@ -67,6 +68,8 @@ function HomePage() {
           })}
       </div>
       
+      <Footer/>
+
     </div>
   );
 }
