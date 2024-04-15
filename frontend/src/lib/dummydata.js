@@ -126,3 +126,39 @@ export const userData = {
   name: "John Doe",
   img: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 };
+
+export const singleData = {
+  id: 1,
+  title: "Beautiful Apartment in the City Center",
+  address: "123 Main St, City, State",
+  price: 1500,
+  images: [
+    "https://images.pexels.com/photos/1918291/pexels-photo-1918291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "https://images.pexels.com/photos/1428348/pexels-photo-1428348.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "https://images.pexels.com/photos/2062426/pexels-photo-2062426.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "https://images.pexels.com/photos/2467285/pexels-photo-2467285.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  ],
+  user: {
+    id: 1,
+    username: "John Doe",
+    avatar: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",  
+  },
+  postDetail: {
+    desc: "Future alike hill pull picture swim magic chain seed engineer nest outer raise bound easy poetry gain loud weigh me recognize farmer bare danger. actually put square leg vessels earth engine matter key cup indeed body film century shut place environment were stage vertical roof bottom lady function breeze darkness beside tin view local breathe carbon swam declared magnet escape has from pile apart route coffee storm someone hold space use ahead sheep jungle closely natural attached part top grain your grade trade corn salmon trouble new bend most teacher range anybody every seat fifteen eventually",
+    utilities: "owner",
+    pet: "allowed",
+    income: "2x rent",
+    size: 1000,
+    bedroom: 2,
+    bathroom: 1,
+    school: 500,
+    bus: 300,
+    restaurant: 200,
+    location: {   
+      city: "London",
+      address: "1234 Broadway St",
+      latitude: 51.5074,
+      longitude: -0.1278 }
+  },
+  isSaved: false // Assuming initially not saved
+};
