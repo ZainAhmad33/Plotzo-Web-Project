@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import SearchBar from "../../components/searchBar/SearchBar";
 import "./HomePage.scss";
-import Card from "../../components/Card/Card";
+//import VerticalCard from "../../components/VerticalCard/VerticalCard";
+import VerticalCard from "../../components/VerticalCard/VerticalCard"
 import { listData } from "../../lib/dummydata";
 import Footer from "../../components/Footer/Footer";
 // import { AuthContext } from "../../context/AuthContext";
@@ -42,28 +43,40 @@ function HomePage() {
           <img src="/bg.png" alt="" />
         </div>
       </div>
-
+      <div className="separator">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+      </div>
       <br/>
+      <br/>
+      <h1>Top Properties</h1>
       <br/>
       <div className="properties-list">
-        <h1>Top Properties</h1>
         <br/>
         <br/>
         {
           listData.map(list => {
             if (list.type === "Sale"){
-              return (<Card item={list}/>)
+              return (<VerticalCard item={list}/>)
             }
           })}
       </div>
       <br/>
+      <h1>Top Rental Properties</h1>
+      <br/>
       <div className="properties-list">
-        <h1>Top Rental Properties</h1>
         <br/>
         {
           listData.map(list => {
             if (list.type === "Rent"){
-              return (<Card item={list}/>)
+              return (<VerticalCard item={list}/>)
             }
           })}
       </div>
