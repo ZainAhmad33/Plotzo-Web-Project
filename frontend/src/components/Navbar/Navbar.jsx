@@ -13,9 +13,9 @@ function Navbar() {
           <span>Plotzo</span>
         </a>
         <Link to="/">Home</Link>
-        <Link to="/">About</Link>
+        <Link to="aboutus">About</Link>
         <Link to="listings">Listings</Link>
-        <Link to="/">Contact</Link>
+        <Link to="contact">Contact</Link>
       </div>
       <div className="right">
 
@@ -32,9 +32,9 @@ function Navbar() {
         </div>
         <div className={open ? "menu active" : "menu"}>
           <Link to="/">Home</Link>
-          <Link to="/">About</Link>
+          <Link to="aboutus">About</Link>
           <Link to="listings">Listings</Link>
-          <Link to="/">Contact</Link>
+          <Link to="contact">Contact</Link>
           <a href="/">Sign in</a>
           <a href="/">Sign up</a>
         </div>

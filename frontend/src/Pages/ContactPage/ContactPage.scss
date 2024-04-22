@@ -1,0 +1,70 @@
+@import "../../responsive.scss";
+//@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+
+
+.contact-page {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .contact-content {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  
+    .form-group {
+      margin-bottom: 20px;
+      display: flex;
+      label {
+        display: block;
+        font-weight: bold;
+        padding: 10px;
+      }
+  
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+    }
+  
+    button {
+      background-color: #fece51;
+      color: #000000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  
+    .social-links {
+      margin-top: 20px;
+  
+      h3 {
+        margin-bottom: 10px;
+      }
+  
+      a {
+        display: inline-block;
+        margin-right: 10px;
+        font-size: medium;
+        text-decoration: none;
+  
+        &:hover {
+            color: #fece51;
+        }
+      }
+    }
+  }
+  

@@ -5,8 +5,8 @@ import { listData, singlePostData } from "./lib/dummydata";
 import ListPage from "./Pages/ListPage/ListPage";
 import UploadWidget from "./components/UploadWidget/UploadWidget";
 import SingleListingPage from "./Pages/SingleListingPage/SingleListingPage";
-
-
+import AboutPage from "./Pages/AboutPage/About";
+import ContactPage from "./Pages/ContactPage/ContactPage";
 // Test Pages
 function App() {
   const router = createBrowserRouter([
@@ -30,6 +30,14 @@ function App() {
         {
           path: "/property",
           element: <SingleListingPage />
+        },
+        {
+          path: "/aboutus",
+          element: <AboutPage />
+        },
+        {
+          path: "/contact",
+          element: <ContactPage />
         }
       ]
     }
