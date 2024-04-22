@@ -7,6 +7,10 @@ import UploadWidget from "./components/UploadWidget/UploadWidget";
 import SingleListingPage from "./Pages/SingleListingPage/SingleListingPage";
 import AboutPage from "./Pages/AboutPage/About";
 import ContactPage from "./Pages/ContactPage/ContactPage";
+import Login from "./Pages/Login/Login";
+import SignUpPage from "./Pages/SignUpPage/SignUpPage";
+
+
 // Test Pages
 function App() {
   const router = createBrowserRouter([
@@ -38,6 +42,14 @@ function App() {
         {
           path: "/contact",
           element: <ContactPage />
+        },
+        {
+          path: "/login",
+          element: <Login />
+        },
+        {
+          path: "/register",
+          element: <SignUpPage />
         }
       ]
     }

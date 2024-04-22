@@ -12,12 +12,20 @@ const Footer = () => {
         <p>Phone: 123-456-7890</p>
         <p>Address: 123 Main Street, City, Country</p>
       </div>
-      <div>
+      <div className='follow-footer'>
         <h3>Follow Us</h3>
-        <p><a href="#">Facebook</a></p>
-        <p><a href="#">Twitter</a></p>
-        <p><a href="#">Instagram</a></p>
+        <div>
+        <i className='bi bi-facebook'></i>&nbsp;&nbsp;<a href="#">Facebook</a><br/>
+        </div>
+        <div>
+        <i className='bi bi-twitter'></i>&nbsp;&nbsp;<a href="#">Twitter</a><br/>
+          
+        </div>
+        <div><i className='bi bi-instagram'></i>&nbsp;&nbsp;<a href="#">Instagram</a><br/>
+          </div>
+        <div><i className='bi bi-envelope'></i>&nbsp;&nbsp;<a href="#">Email</a><br/>
       </div>
+          </div>
       <div>
         <h3>About Us</h3>
         <p>About the company and its mission.</p>

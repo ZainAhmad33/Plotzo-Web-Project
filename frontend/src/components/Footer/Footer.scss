@@ -31,13 +31,19 @@
       font-size: 1.2rem;
       margin-bottom: 10px;
     }
-  
+    .follow-footer{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      div{
+        align-self: flex-start;
+      }
+    }
     // Style links
     a {
-      color: blue;
       text-decoration: none;
       &:hover {
-        text-decoration: underline;
+        color: #fece51
       }
     }
   
