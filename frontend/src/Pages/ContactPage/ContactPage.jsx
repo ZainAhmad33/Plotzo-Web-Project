@@ -41,19 +41,10 @@ const ContactPage = () => {
         <br/>
         <h3>Have a question or need assistance? Fill out the form below or connect with us on social media!</h3>
         <br/>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="name">Name:</label>
-            <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email:</label>
-            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
-          </div>
-          <div className="form-group">
-            <label htmlFor="query">Query:</label>
-            <textarea id="query" name="query" value={formData.query} onChange={handleChange} required></textarea>
-          </div>
+        <form className='form' onSubmit={handleSubmit}>
+          <input type="text" placeholder='Name' id="name" name="name" value={formData.name} onChange={handleChange} required />
+          <input type="email" placeholder='Email' id="email" name="email" value={formData.email} onChange={handleChange} required />
+          <textarea id="query" placeholder='Query' name="query" value={formData.query} onChange={handleChange} required></textarea>
           <button type="submit">Submit</button>
         </form>
       </div>
