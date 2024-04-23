@@ -9,6 +9,8 @@ import AboutPage from "./Pages/AboutPage/About";
 import ContactPage from "./Pages/ContactPage/ContactPage";
 import Login from "./Pages/Login/Login";
 import SignUpPage from "./Pages/SignUpPage/SignUpPage";
+import ProfilePage from "./Pages/ProfilePage/ProfilePage";
+import ProfileUpdatePage from "./Pages/UpdateProfilePage/UpdateProfilePage";
 
 
 // Test Pages
@@ -50,6 +52,14 @@ function App() {
         {
           path: "/register",
           element: <SignUpPage />
+        },
+        {
+          path: "/profile",
+          element: <ProfilePage />
+        },
+        {
+          path: "/profile/update",
+          element: <ProfileUpdatePage />
         }
       ]
     }
