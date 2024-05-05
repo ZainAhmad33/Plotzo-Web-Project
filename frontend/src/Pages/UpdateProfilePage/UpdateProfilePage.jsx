@@ -7,8 +7,8 @@ import UploadWidget from "../../components/UploadWidget/UploadWidget";
 import { userData } from "../../lib/dummydata";
 
 function ProfileUpdatePage() {
-//   const { currentUser, updateUser } = useContext(AuthContext);
-  const currentUser = userData
+  //   const { currentUser, updateUser } = useContext(AuthContext);
+  const currentUser = userData;
   const [error, setError] = useState("");
   const [avatar, setAvatar] = useState([]);
 
@@ -19,7 +19,7 @@ function ProfileUpdatePage() {
     const formData = new FormData(e.target);
 
     const { username, email, password } = Object.fromEntries(formData);
-    alert("Submitting Changes....")
+    alert("Submitting Changes....");
     // try {
     //   const res = await apiRequest.put(`/users/${currentUser.id}`, {
     //     username,
@@ -67,7 +67,11 @@ function ProfileUpdatePage() {
         </form>
       </div>
       <div className="sideContainer">
-        <img src={avatar[0] || currentUser.avatar || "/noavatar.jpg"} alt="" className="avatar" />
+        <img
+          src={avatar[0] || currentUser.avatar || "/noavatar.jpg"}
+          alt=""
+          className="avatar"
+        />
         <UploadWidget
           uwConfig={{
             cloudName: "lamadev",

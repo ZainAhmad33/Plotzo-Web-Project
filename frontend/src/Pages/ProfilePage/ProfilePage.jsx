@@ -1,30 +1,28 @@
 // import Chat from "../../components/chat/Chat";
 // import List from "../../components/list/List";
 import "./ProfilePage.scss";
-// import apiRequest from "../../lib/apiRequest";
+import apiRequest from "../../lib/apiRequest";
 import { Await, Link, useLoaderData, useNavigate } from "react-router-dom";
 import { Suspense, useContext } from "react";
-// import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 import { userData } from "../../lib/dummydata";
 
-
 function ProfilePage() {
-//   const data = useLoaderData();
+  const data = useLoaderData();
 
-//   const { updateUser, currentUser } = useContext(AuthContext);
+  const { updateUser, currentUser } = useContext(AuthContext);
 
-    const currentUser = userData
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    alert("Logging Out....")
-    // try {
-    //   await apiRequest.post("/auth/logout");
-    //   updateUser(null);
-    //   navigate("/");
-    // } catch (err) {
-    //   console.log(err);
-    // }
+    alert("Logging Out....");
+    try {
+      await apiRequest.post("/auth/logout");
+      updateUser(null);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <div className="profilePage">

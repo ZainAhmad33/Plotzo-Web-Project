@@ -1,6 +1,6 @@
-import HomePage from "./Pages/HomePage/HomePage"
-import Layout from "./Pages/Layout/Layout"
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import HomePage from "./Pages/HomePage/HomePage";
+import { Layout, RequireAuth } from "./Pages/Layout/Layout";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { listData, singlePostData } from "./lib/dummydata";
 import ListPage from "./Pages/ListPage/ListPage";
 import UploadWidget from "./components/UploadWidget/UploadWidget";
@@ -12,61 +12,77 @@ import SignUpPage from "./Pages/SignUpPage/SignUpPage";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import ProfileUpdatePage from "./Pages/UpdateProfilePage/UpdateProfilePage";
 
-
 // Test Pages
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Layout />,
-      children:[
+      children: [
         {
           path: "/",
-          element: <HomePage/>
+          element: <HomePage />,
         },
         {
           path: "/test",
-          element: <UploadWidget/>
-
+          element: <UploadWidget />,
         },
         {
           path: "/listings",
-          element: <ListPage />
+          element: <ListPage />,
         },
         {
           path: "/property",
-          element: <SingleListingPage />
+          element: <SingleListingPage />,
         },
         {
           path: "/aboutus",
-          element: <AboutPage />
+          element: <AboutPage />,
         },
         {
           path: "/contact",
-          element: <ContactPage />
+          element: <ContactPage />,
         },
         {
           path: "/login",
-          element: <Login />
+          element: <Login />,
         },
         {
           path: "/register",
-          element: <SignUpPage />
+          element: <SignUpPage />,
         },
         {
           path: "/profile",
-          element: <ProfilePage />
+          element: <ProfilePage />,
         },
         {
           path: "/profile/update",
-          element: <ProfileUpdatePage />
-        }
-      ]
-    }
+          element: <ProfileUpdatePage />,
+        },
+      ],
+    },
+    {
+      path: "/",
+      element: <RequireAuth />,
+      children: [
+        {
+          path: "/profile",
+          element: <ProfilePage />,
+          loader: profilePageLoader,
+        },
+        {
+          path: "/profile/update",
+          element: <ProfileUpdatePage />,
+        },
+        {
+          path: "/add",
+          element: <NewPostPage />,
+        },
+      ],
+    },
   ]);
 
-  return (<RouterProvider router={router} />)
+  return <RouterProvider router={router} />;
 }
 
-
-export default App
+export default App;
