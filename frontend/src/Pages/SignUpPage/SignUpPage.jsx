@@ -20,10 +20,7 @@ function SignUpPage() {
     const email = formData.get("email");
     const password = formData.get("password");
 
-    alert(
-      "Username: " + username + "\nEmail: " + email + "\nPassword: " + password
-    );
-
+    
     try {
       const res = await apiRequest.post("/auth/register", {
         username,

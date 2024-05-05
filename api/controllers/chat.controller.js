@@ -1,4 +1,4 @@
-import prisma from "../lib/prisma.js";
+import prisma from "../prisma/prisma.js";
 
 export const getChats = async (req, res) => {
   const tokenUserId = req.userId;
