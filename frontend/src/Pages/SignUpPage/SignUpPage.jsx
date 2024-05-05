@@ -2,7 +2,7 @@ import "./SignUpPage.scss";
 import { Link, useNavigate } from "react-router-dom";
 // import axios from "axios";
 import { useState } from "react";
-// import apiRequest from "../../lib/apiRequest";
+import apiRequest from "../../lib/apiRequest";
 
 function SignUpPage() {
   const [error, setError] = useState("");
@@ -12,7 +12,7 @@ function SignUpPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("")
+    setError("");
     setIsLoading(true);
     const formData = new FormData(e.target);
 
@@ -20,23 +20,23 @@ function SignUpPage() {
     const email = formData.get("email");
     const password = formData.get("password");
 
-    alert("Username: " + username
-        + "\nEmail: " + email
-        + "\nPassword: " + password)
+    alert(
+      "Username: " + username + "\nEmail: " + email + "\nPassword: " + password
+    );
 
-    // try {
-    //   const res = await apiRequest.post("/auth/register", {
-    //     username,
-    //     email,
-    //     password,
-    //   });
+    try {
+      const res = await apiRequest.post("/auth/register", {
+        username,
+        email,
+        password,
+      });
 
-    //   navigate("/login");
-    // } catch (err) {
-    //   setError(err.response.data.message);
-    // } finally {
-    //   setIsLoading(false);
-    // }
+      navigate("/login");
+    } catch (err) {
+      setError(err.response.data.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
   return (
     <div className="registerPage">

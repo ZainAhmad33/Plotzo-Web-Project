@@ -1,14 +1,14 @@
 import { useContext, useState } from "react";
 import "./Login.scss";
 import { Link, useNavigate } from "react-router-dom";
-// import apiRequest from "../../lib/apiRequest";
+import apiRequest from "../../lib/apiRequest";
 // import { AuthContext } from "../../context/AuthContext";
 
 function Login() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-//   const {updateUser} = useContext(AuthContext)
+  //   const {updateUser} = useContext(AuthContext)
 
   const navigate = useNavigate();
 
@@ -20,22 +20,22 @@ function Login() {
 
     const username = formData.get("username");
     const password = formData.get("password");
-    const message = 'Username: ${username}\nPassword: ${password}'
-    alert('Username: ' + username + '\nPassword: ' + password)
-    // try {
-    //   const res = await apiRequest.post("/auth/login", {
-    //     username,
-    //     password,
-    //   });
+    const message = "Username: ${username}\nPassword: ${password}";
+    alert("Username: " + username + "\nPassword: " + password);
+    try {
+      const res = await apiRequest.post("/auth/login", {
+        username,
+        password,
+      });
 
-    //   updateUser(res.data)
+      updateUser(res.data);
 
-    //   navigate("/");
-    // } catch (err) {
-    //   setError(err.response.data.message);
-    // } finally {
-    //   setIsLoading(false);
-    // }
+      navigate("/");
+    } catch (err) {
+      setError(err.response.data.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
   return (
     <div className="login">
