@@ -1,16 +1,16 @@
 import { useContext, useState } from "react";
 import "./UpdateProfilePage.scss";
-// import { AuthContext } from "../../context/AuthContext";
-// import apiRequest from "../../lib/apiRequest";
+import { AuthContext } from "../../context/AuthContext";
+import apiRequest from "../../lib/apiRequest";
 import { useNavigate } from "react-router-dom";
 import UploadWidget from "../../components/UploadWidget/UploadWidget";
 import { userData } from "../../lib/dummydata";
 
 function ProfileUpdatePage() {
-  //   const { currentUser, updateUser } = useContext(AuthContext);
-  const currentUser = userData;
+  const { currentUser, updateUser } = useContext(AuthContext);
+  //const currentUser = userData;
   const [error, setError] = useState("");
-  const [avatar, setAvatar] = useState([]);
+  const [avatar, setAvatar] = useState([currentUser.avatar]);
 
   const navigate = useNavigate();
 
@@ -20,19 +20,19 @@ function ProfileUpdatePage() {
 
     const { username, email, password } = Object.fromEntries(formData);
     alert("Submitting Changes....");
-    // try {
-    //   const res = await apiRequest.put(`/users/${currentUser.id}`, {
-    //     username,
-    //     email,
-    //     password,
-    //     avatar:avatar[0]
-    //   });
-    //   updateUser(res.data);
-    //   navigate("/profile");
-    // } catch (err) {
-    //   console.log(err);
-    //   setError(err.response.data.message);
-    // }
+    try {
+      const res = await apiRequest.put(`/users/${currentUser.id}`, {
+        username,
+        email,
+        password,
+        avatar:avatar[0]
+      });
+      updateUser(res.data);
+      navigate("/profile");
+    } catch (err) {
+      console.log(err);
+      setError(err.response.data.message);
+    }
   };
 
   return (
