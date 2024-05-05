@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./searchBar.scss";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const types = ["buy", "rent"];
 
@@ -57,16 +57,13 @@ function SearchBar() {
           onChange={handleChange}
         />
 
-        <button>
-            <img src="/search.png" alt="" />
-        </button>
-        {/* <Link
+        <Link
           to={`/list?type=${query.type}&city=${query.city}&minPrice=${query.minPrice}&maxPrice=${query.maxPrice}`}
         >
           <button>
             <img src="/search.png" alt="" />
           </button>
-        </Link> */}
+        </Link>
       </form>
     </div>
   );
