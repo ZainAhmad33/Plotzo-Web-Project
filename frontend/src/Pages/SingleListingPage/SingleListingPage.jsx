@@ -11,6 +11,8 @@ import { singleData } from "../../lib/dummydata";
 function SingleListingPage() {
   const post = singleData; //useLoaderData();
   const [saved, setSaved] = useState(post.isSaved);
+  const [isHovered, setIsHovered] = useState(false);
+  const [predictedPrice, setPredictedPrice] = useState(1300);
 //  const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -42,7 +44,15 @@ function SingleListingPage() {
                   <img src="/pin.png" alt="" />
                   <span>{post.address}</span>
                 </div>
-                <div className="price">$ {post.price}</div>
+                <div className="price">$ {post.price} &nbsp;&nbsp;&nbsp; 
+                {(post.price > predictedPrice) && <i className="bi bi-arrow-up-circle-fill tooltip" onMouseEnter={() => setIsHovered(true)}onMouseLeave={() => setIsHovered(false)}><div className="tooltiptext">
+                    Price of this property is higher than our estimated price of $ {predictedPrice}.
+                  </div></i>}
+                {(post.price <= predictedPrice) && <i className="bi bi-arrow-down-circle-fill tooltip" onMouseEnter={() => setIsHovered(true)}onMouseLeave={() => setIsHovered(false)}><div className="tooltiptext">
+                  Price of this property is lower than our estimated price of $ {predictedPrice}.
+                  </div></i>}
+                </div>
+                
               </div>
               <div className="user">
                 <img src={post.user.avatar} alt="" />
