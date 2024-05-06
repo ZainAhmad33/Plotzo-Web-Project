@@ -10,7 +10,7 @@ function ProfileUpdatePage() {
   const { currentUser, updateUser } = useContext(AuthContext);
   //const currentUser = userData;
   const [error, setError] = useState("");
-  const [avatar, setAvatar] = useState([currentUser.avatar]);
+  const [avatar, setAvatar] = useState([]);
 
   const navigate = useNavigate();
 
