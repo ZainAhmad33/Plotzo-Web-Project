@@ -5,12 +5,12 @@ function VerticalCard({ item }) {
     console.log(item)
   return (
     <div className="vertical-card">
-      <Link to={`/${item.id}`} className="vertical-imageContainer">
+      <Link to={`/property/${item.id}`} className="vertical-imageContainer">
         <img src={item.images[0]} alt="" />
       </Link>
       <div className="textContainer">
         <h2 className="title">
-          <Link to={`/${item.id}`}>{item.title}</Link>
+          <Link to={`/property/${item.id}`}>{item.title}</Link>
         </h2>
         <p className="address">
           <img src="/pin.png" alt="" />
