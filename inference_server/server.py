@@ -3,7 +3,7 @@ import pickle
 
 app = Flask(__name__)
 
-with open('model.pkl', 'wb') as f:
+with open('model.pkl', 'rb') as f:
     model = pickle.load(f)
 
 def transform_data(data):
@@ -31,7 +31,13 @@ def transform_data(data):
 
 def predict_price(house_data):
     transformed = transform_data(house_data)
-    predicted_price = model.predict(transformed.values())[0]
+    print()
+    print()
+    print(transformed.values())
+    print(type(list(transformed.values())))
+    print()
+    print()   
+    predicted_price = model.predict([list(transformed.values())])[0]
     return predicted_price
 
 @app.route('/predict', methods=['POST'])
