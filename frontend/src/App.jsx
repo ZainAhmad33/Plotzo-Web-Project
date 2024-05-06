@@ -3,7 +3,7 @@ import { Layout, RequireAuth } from "./Pages/Layout/Layout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { listData, singlePostData } from "./lib/dummydata";
 import ListPage from "./Pages/ListPage/ListPage";
-import UploadWidget from "./components/UploadWidget/UploadWidget";
+import UploadWidget from "../components/UploadWidget/UploadWidget";
 import SingleListingPage from "./Pages/SingleListingPage/SingleListingPage";
 import AboutPage from "./Pages/AboutPage/About";
 import ContactPage from "./Pages/ContactPage/ContactPage";
@@ -75,10 +75,10 @@ function App() {
           path: "/profile/update",
           element: <ProfileUpdatePage />,
         },
-        // {
-        //   path: "/add",
-        //   element: <NewPostPage />,
-        // },
+        {
+          path: "/add",
+          element: <NewPostPage />,
+        },
       ],
     },
   ]);
