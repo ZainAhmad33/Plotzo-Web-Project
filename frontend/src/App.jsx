@@ -34,7 +34,7 @@ function App() {
           element: <ListPage />,
         },
         {
-          path: "/property",
+          path: "/property/:id",
           element: <SingleListingPage />,
         },
         {
