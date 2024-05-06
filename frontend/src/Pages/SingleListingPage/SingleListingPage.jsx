@@ -2,19 +2,34 @@ import "./SingleListingPage.scss";
 import Map from "../../components/Map/Map";
 import { useNavigate, useLoaderData } from "react-router-dom";
 import DOMPurify from "dompurify";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 //import { AuthContext } from "../../context/AuthContext";
 //import apiRequest from "../../lib/apiRequest";
 import ImageSlider from "../../components/ImageSlider/ImageSlider";
 import { singleData } from "../../lib/dummydata";
+import axios from 'axios';
 
 function SingleListingPage() {
   const post = singleData; //useLoaderData();
   const [saved, setSaved] = useState(post.isSaved);
-  const [isHovered, setIsHovered] = useState(false);
-  const [predictedPrice, setPredictedPrice] = useState(1300);
+  const [predictedPrice, setPredictedPrice] = useState(0);
 //  const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const postDataToPredictEndpoint = async () => {
+      try {
+        const response = await axios.post('http://localhost:8900/predict', post);
+
+        setPredictedPrice((response.data['predicted_price']*0.0036).toFixed(2)); // Handle response data as needed
+      } catch (error) {
+        console.error('Error:', error);
+        // Handle error here
+      }
+    };
+
+    postDataToPredictEndpoint();
+  }, []);
 
   const handleSave = async () => {
     // if (!currentUser) {
