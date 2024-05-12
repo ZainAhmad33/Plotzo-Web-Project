@@ -8,12 +8,12 @@ export const singlePageLoader = async ({ request, params }) => {
 export const listPageLoader = async ({ request, params }) => {
   console.log("in loader");
   const query = request.url.split("?")[1];
-  //const postPromise = apiRequest("/posts?" + query);
-  const res = await apiRequest("/posts?" + query);
-  return res.data;
-  // return defer({
-  //   postResponse: postPromise,
-  // });
+  const postPromise = apiRequest("/posts?" + query);
+  //const res = await apiRequest("/posts?" + query);
+  //return res.data;
+  return defer({
+    postResponse: postPromise,
+  });
 };
 
 export const profilePageLoader = async () => {
