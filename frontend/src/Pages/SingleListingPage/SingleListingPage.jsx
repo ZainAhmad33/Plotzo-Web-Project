@@ -3,8 +3,8 @@ import Map from "../../components/Map/Map";
 import { useNavigate, useLoaderData } from "react-router-dom";
 import DOMPurify from "dompurify";
 import { useContext, useState, useEffect } from "react";
-//import { AuthContext } from "../../context/AuthContext";
-//import apiRequest from "../../lib/apiRequest";
+import { AuthContext } from "../../context/AuthContext";
+import apiRequest from "../../lib/apiRequest";
 import ImageSlider from "../../components/ImageSlider/ImageSlider";
 import { singleData } from "../../lib/dummydata";
 import axios from 'axios';
@@ -12,10 +12,10 @@ import axios from 'axios';
 function SingleListingPage() {
   //const post = singleData; //useLoaderData();
   const post = useLoaderData();
-  console.log(post);
+  
   const [saved, setSaved] = useState(post.isSaved);
   const [predictedPrice, setPredictedPrice] = useState(0);
-//  const { currentUser } = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -39,7 +39,7 @@ function SingleListingPage() {
     }
     // AFTER REACT 19 UPDATE TO USEOPTIMISTIK HOOK
     setSaved((prev) => !prev);
-    alert("Saved!")
+    //alert("Saved!")
     try {
       await apiRequest.post("/users/save", { postId: post.id });
     } catch (err) {
