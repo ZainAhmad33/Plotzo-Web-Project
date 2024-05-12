@@ -14,6 +14,7 @@ function SingleListingPage() {
   const post = useLoaderData();
   
   const [saved, setSaved] = useState(post.isSaved);
+  console.log(saved);
   //const [predictedPrice, setPredictedPrice] = useState(0);
   const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
