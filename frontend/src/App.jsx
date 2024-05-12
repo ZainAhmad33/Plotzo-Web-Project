@@ -32,6 +32,7 @@ function App() {
         {
           path: "/listings",
           element: <ListPage />,
+          loader: listPageLoader,
         },
         {
           path: "/property/:id",

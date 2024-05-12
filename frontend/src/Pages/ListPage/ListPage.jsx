@@ -10,7 +10,7 @@ import { Suspense, useState } from "react";
 function ListPage() {
   const data = useLoaderData();
   const [toggleView, setToggleView] = useState(true);
-
+  console.log(data);
   return (
     <>
         <div className="listPage">
@@ -37,7 +37,7 @@ function ListPage() {
                     errorElement={<p>Error loading posts!</p>}
                     >
                     {(postResponse) =>
-                        listData.map((post) => (
+                        data.map((post) => (
                             toggleView?
                             (<Card key={post.id} item={post} />)
                             :(<VerticalCard key={post.id} item={post} />)
@@ -54,7 +54,7 @@ function ListPage() {
                     resolve={1+1 == 2}
                     errorElement={<p>Error loading posts!</p>}
                 >
-                    {(postResponse) => <Map items={listData} />}
+                    {(postResponse) => <Map items={data} />}
                 </Await>
                 </Suspense>
             </div>
