@@ -15,24 +15,24 @@ function SingleListingPage() {
   
   const [saved, setSaved] = useState(post.isSaved);
   console.log(saved);
-  //const [predictedPrice, setPredictedPrice] = useState(0);
+  const [predictedPrice, setPredictedPrice] = useState(0);
   const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const postDataToPredictEndpoint = async () => {
-  //     try {
-  //       const response = await axios.post('http://localhost:8900/predict', post);
+  useEffect(() => {
+    const postDataToPredictEndpoint = async () => {
+      try {
+        const response = await axios.post('http://localhost:8900/predict', post);
 
-  //       setPredictedPrice((response.data['predicted_price']*0.0036).toFixed(2)); // Handle response data as needed
-  //     } catch (error) {
-  //       console.error('Error:', error);
-  //       // Handle error here
-  //     }
-  //   };
+        setPredictedPrice((response.data['predicted_price']*0.0036).toFixed(2)); // Handle response data as needed
+      } catch (error) {
+        console.error('Error:', error);
+        // Handle error here
+      }
+    };
 
-  //   postDataToPredictEndpoint();
-  // }, []);
+    postDataToPredictEndpoint();
+  }, []);
 
   const handleSave = async () => {
     if (!currentUser) {
@@ -61,14 +61,13 @@ function SingleListingPage() {
                   <img src="/pin.png" alt="" />
                   <span>{post.address}</span>
                 </div>
-                <div className="price">$ {post.price} 
-                {/*&nbsp;&nbsp;&nbsp; 
+                <div className="price">$ {post.price} &nbsp;&nbsp;&nbsp; 
                  {(post.price > predictedPrice) && <i className="bi bi-arrow-up-circle-fill tooltip" onMouseEnter={() => setIsHovered(true)}onMouseLeave={() => setIsHovered(false)}><div className="tooltiptext">
                     Price of this property is higher than our estimated price of $ {predictedPrice}.
                   </div></i>}
                 {(post.price <= predictedPrice) && <i className="bi bi-arrow-down-circle-fill tooltip" onMouseEnter={() => setIsHovered(true)}onMouseLeave={() => setIsHovered(false)}><div className="tooltiptext">
                   Price of this property is lower than our estimated price of $ {predictedPrice}.
-                  </div></i>} */}
+                  </div></i>}
                 </div>
                 
               </div>
