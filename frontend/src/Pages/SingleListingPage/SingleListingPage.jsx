@@ -10,7 +10,9 @@ import { singleData } from "../../lib/dummydata";
 import axios from 'axios';
 
 function SingleListingPage() {
-  const post = singleData; //useLoaderData();
+  //const post = singleData; //useLoaderData();
+  const post = useLoaderData();
+  console.log(post);
   const [saved, setSaved] = useState(post.isSaved);
   const [predictedPrice, setPredictedPrice] = useState(0);
 //  const { currentUser } = useContext(AuthContext);
@@ -32,18 +34,18 @@ function SingleListingPage() {
   }, []);
 
   const handleSave = async () => {
-    // if (!currentUser) {
-    //   navigate("/login");
-    // }
+    if (!currentUser) {
+      navigate("/login");
+    }
     // AFTER REACT 19 UPDATE TO USEOPTIMISTIK HOOK
     setSaved((prev) => !prev);
     alert("Saved!")
-    // try {
-    //   await apiRequest.post("/users/save", { postId: post.id });
-    // } catch (err) {
-    //   console.log(err);
-    //   setSaved((prev) => !prev);
-    // }
+    try {
+      await apiRequest.post("/users/save", { postId: post.id });
+    } catch (err) {
+      console.log(err);
+      setSaved((prev) => !prev);
+    }
   };
 
   return (
@@ -162,7 +164,7 @@ function SingleListingPage() {
             </div>
           </div>
           <p className="title">Location</p>
-          <div className="mapContainer">
+          {/* <div className="mapContainer">
             <Map items={[
                 {...post.postDetail.location, // logitude, latitude, address, city
                     images:[post.images[0]],
@@ -172,6 +174,9 @@ function SingleListingPage() {
                     price: post.price,
                 }
                  ]} />
+          </div> */}
+          <div className="mapContainer">
+            <Map items={[post]} />
           </div>
           <div className="buttons">
             <button>

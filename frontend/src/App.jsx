@@ -36,6 +36,7 @@ function App() {
         {
           path: "/property/:id",
           element: <SingleListingPage />,
+          loader: singlePageLoader,
         },
         {
           path: "/aboutus",
