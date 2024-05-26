@@ -1,8 +1,30 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Card.scss";
+import axios from "axios";
 
 function Card({ item }) {
-    //console.log(item)
+  const navigate = useNavigate();
+  function initiateChat() {
+    const postData = {
+      receiverId: item.userId,
+    };
+
+    axios
+      .post("http://localhost:8800/api/chats", postData, {
+        withCredentials: true,
+      })
+      .then((response) => {
+        console.log("Response:", response.data);
+
+        if (response.status !== 500) {
+          navigate("/profile");
+        }
+      })
+      .catch((error) => {
+        console.error("Error IN initiating the chat:", error);
+      });
+  }
+  //console.log(item)
   return (
     <div className="card">
       <Link to={`/property/${item.id}`} className="imageContainer">
@@ -33,7 +55,7 @@ function Card({ item }) {
               <img src="/save.png" alt="" />
             </div>
             <div className="icon">
-              <img src="/chat.png" alt="" />
+              <img src="/chat.png" alt="" onClick={initiateChat} />
             </div>
           </div>
         </div>

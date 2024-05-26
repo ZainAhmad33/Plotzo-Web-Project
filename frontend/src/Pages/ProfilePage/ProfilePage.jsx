@@ -1,4 +1,4 @@
-// import Chat from "../../components/chat/Chat";
+import Chat from "../../components/Chat/chat";
 import List from "../../components/list/List";
 import "./ProfilePage.scss";
 import apiRequest from "../../lib/apiRequest";
@@ -9,6 +9,7 @@ import { userData } from "../../lib/dummydata";
 
 function ProfilePage() {
   const data = useLoaderData();
+  console.log(data);
 
   const { updateUser, currentUser } = useContext(AuthContext);
 
@@ -76,14 +77,14 @@ function ProfilePage() {
       </div>
       <div className="chatContainer">
         <div className="wrapper">
-          {/* <Suspense fallback={<p>Loading...</p>}>
+          <Suspense fallback={<p>Loading...</p>}>
             <Await
               resolve={data.chatResponse}
               errorElement={<p>Error loading chats!</p>}
             >
-              {(chatResponse) => <Chat chats={chatResponse.data}/>}
+              {(chatResponse) => <Chat chats={chatResponse.data} />}
             </Await>
-          </Suspense> */}
+          </Suspense>
         </div>
       </div>
     </div>
